@@ -1,29 +1,29 @@
 #include <iostream>
-#include <vector>
 
-void splitArray(const std::vector<int>& original, std::vector<int>& part1, std::vector<int>& part2) {
-    for (int i = 0; i < 5; ++i) {
+void splitArray(int original[], int part1[], int part2[], int size) {
+    for (int i = 0; i < size / 2; ++i) {
         part1[i] = original[i];
-        part2[i] = original[i + 5];
+        part2[i] = original[i + size / 2];
     }
 }
 
 int main() {
-    std::vector<int> original = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    std::vector<int> part1(5);
-    std::vector<int> part2(5);
+    const int size = 10;
+    int original[size] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    int part1[size / 2];
+    int part2[size / 2];
 
-    splitArray(original, part1, part2);
+    splitArray(original, part1, part2, size);
 
     std::cout << "Part 1: ";
-    for (int num : part1) {
-        std::cout << num << " ";
+    for (int i = 0; i < size / 2; ++i) {
+        std::cout << part1[i] << " ";
     }
     std::cout << std::endl;
 
     std::cout << "Part 2: ";
-    for (int num : part2) {
-        std::cout << num << " ";
+    for (int i = 0; i < size / 2; ++i) {
+        std::cout << part2[i] << " ";
     }
     std::cout << std::endl;
 
