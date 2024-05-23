@@ -21,8 +21,8 @@ void combineArrays(int arr1[], int arr2[], int result[], int size) {
 
 int main() {
     const int size = 5;
-    int arr1[size] = { 1, -2, 0, 3, -4 };
-    int arr2[size] = { 0, -1, 2, -3, 4 };
+    int arr1[size] = { 1, -1, 0, 3, -4 };
+    int arr2[size] = { 0, -2, 2, -3, 4 };
     const int resultSize = size * 2;
     int result[resultSize];
 
