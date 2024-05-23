@@ -1,27 +1,26 @@
 #include <iostream>
-#include <vector>
 
-void compressArray(std::vector<int>& arr) {
-    int n = arr.size();
+void compressArray(int arr[], int size) {
     int index = 0;
 
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < size; ++i) {
         if (arr[i] != 0) {
             arr[index++] = arr[i];
         }
     }
 
-    while (index < n) {
+    while (index < size) {
         arr[index++] = -1;
     }
 }
 
 int main() {
-    std::vector<int> arr = { 0, 1, 2, 0, 3, 0, 4, 5 };
-    compressArray(arr);
+    const int size = 8;
+    int arr[size] = { 0, 1, 2, 0, 3, 0, 4, 5 };
+    compressArray(arr, size);
 
-    for (int num : arr) {
-        std::cout << num << " ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
     }
 
     return 0;
