@@ -1,25 +1,22 @@
 #include <iostream>
-#include <vector>
 
-std::vector<int> sumArrays(const std::vector<int>& arr1, const std::vector<int>& arr2) {
-    int size = arr1.size();
-    std::vector<int> result(size);
-
+void sumArrays(int arr1[], int arr2[], int result[], int size) {
     for (int i = 0; i < size; ++i) {
         result[i] = arr1[i] + arr2[i];
     }
-
-    return result;
 }
 
 int main() {
-    std::vector<int> arr1 = { 1, 2, 3, 4, 5 };
-    std::vector<int> arr2 = { 6, 7, 8, 9, 10 };
-    std::vector<int> result = sumArrays(arr1, arr2);
+    const int size = 5;
+    int arr1[size] = { 1, 2, 3, 4, 5 };
+    int arr2[size] = { 6, 7, 8, 9, 10 };
+    int result[size];
+
+    sumArrays(arr1, arr2, result, size);
 
     std::cout << "Result: ";
-    for (int num : result) {
-        std::cout << num << " ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << result[i] << " ";
     }
     std::cout << std::endl;
 
