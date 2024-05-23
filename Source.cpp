@@ -1,53 +1,38 @@
 #include <iostream>
-#include <vector>
 
-std::vector<int> combineArrays(const std::vector<int>& arr1, const std::vector<int>& arr2) {
-    std::vector<int> result;
+void combineArrays(int arr1[], int arr2[], int result[], int size) {
+    int index = 0;
 
-    for (int num : arr1) {
-        if (num > 0) {
-            result.push_back(num);
-        }
-    }
-    for (int num : arr2) {
-        if (num > 0) {
-            result.push_back(num);
-        }
+    for (int i = 0; i < size; ++i) {
+        if (arr1[i] > 0) result[index++] = arr1[i];
+        if (arr2[i] > 0) result[index++] = arr2[i];
     }
 
-    for (int num : arr1) {
-        if (num == 0) {
-            result.push_back(num);
-        }
-    }
-    for (int num : arr2) {
-        if (num == 0) {
-            result.push_back(num);
-        }
+    for (int i = 0; i < size; ++i) {
+        if (arr1[i] == 0) result[index++] = arr1[i];
+        if (arr2[i] == 0) result[index++] = arr2[i];
     }
 
-    for (int num : arr1) {
-        if (num < 0) {
-            result.push_back(num);
-        }
+    for (int i = 0; i < size; ++i) {
+        if (arr1[i] < 0) result[index++] = arr1[i];
+        if (arr2[i] < 0) result[index++] = arr2[i];
     }
-    for (int num : arr2) {
-        if (num < 0) {
-            result.push_back(num);
-        }
-    }
-
-    return result;
 }
 
 int main() {
-    std::vector<int> arr1 = { 1, -2, 0, 3, -4 };
-    std::vector<int> arr2 = { 0, -1, 2, -3, 4 };
-    std::vector<int> combinedArray = combineArrays(arr1, arr2);
+    const int size = 5;
+    int arr1[size] = { 1, -2, 0, 3, -4 };
+    int arr2[size] = { 0, -1, 2, -3, 4 };
+    const int resultSize = size * 2;
+    int result[resultSize];
 
-    for (int num : combinedArray) {
-        std::cout << num << " ";
+    combineArrays(arr1, arr2, result, size);
+
+    std::cout << "Combined Array: ";
+    for (int i = 0; i < resultSize; ++i) {
+        std::cout << result[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
