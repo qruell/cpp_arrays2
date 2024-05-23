@@ -16,7 +16,7 @@ void compressArray(int arr[], int size) {
 
 int main() {
     const int size = 8;
-    int arr[size] = { 0, 1, 2, 0, 3, 0, 4, 5 };
+    int arr[size] = { 0, 1, 2, 0, 3, 4, 0, 5 };
     compressArray(arr, size);
 
     for (int i = 0; i < size; ++i) {
